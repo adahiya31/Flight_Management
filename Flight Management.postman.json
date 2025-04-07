@@ -1,0 +1,207 @@
+{
+	"info": {
+		"_postman_id": "d252d38d-0924-466c-ae9c-6a65b2f723dc",
+		"name": "Flight Management",
+		"description": "Postman collection for Flight CRUD and Search APIs (including CrazySupplier)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "41852091"
+	},
+	"item": [
+		{
+			"name": "Add Flight",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "admin",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "admin",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"airline\": \"AirlineX\",\n  \"supplier\": \"SupplierX\",\n  \"fare\": 250.0,\n  \"departureAirport\": \"JFK\",\n  \"destinationAirport\": \"LAX\",\n  \"departureTime\": \"2025-05-10T09:00:00\",\n  \"arrivalTime\": \"2025-05-10T13:00:00\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/flights/addflight",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"flights",
+						"addflight"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Auth",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"airline\": \"AirlineX\",\n  \"supplier\": \"SupplierX\",\n  \"fare\": 250.0,\n  \"departureAirport\": \"JFK\",\n  \"destinationAirport\": \"LAX\",\n  \"departureTime\": \"2025-05-10T09:00:00\",\n  \"arrivalTime\": \"2025-05-10T13:00:00\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/flights",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"flights"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Flights",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/flights",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"flights"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Flight by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/flights/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"flights",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Flight",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"airline\": \"UpdatedAirline\",\n  \"supplier\": \"UpdatedSupplier\",\n  \"fare\": 300.0,\n  \"departureAirport\": \"LAX\",\n  \"destinationAirport\": \"ORD\",\n  \"departureTime\": \"2025-05-11T10:00:00\",\n  \"arrivalTime\": \"2025-05-11T14:00:00\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/flights/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"flights",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Flight",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/flights/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"flights",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Flights (with CrazySupplier)",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"airline\": \"Airline1\",\n    \"origin\": \"DEL\",\n    \"destination\": \"HYD\",\n    \"outboundDate\": \"2025-05-10T09:00:00\",\n    \"inboundDate\": \"2025-05-10T13:00:00\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/flights/search",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"flights",
+						"search"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
