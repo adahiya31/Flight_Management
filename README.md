@@ -48,3 +48,7 @@ cd flight-management
 
 ## Postman Collection 
 FlightsManagement
+
+## Assumption
+
+CrazySupplier API is up and runnning.
