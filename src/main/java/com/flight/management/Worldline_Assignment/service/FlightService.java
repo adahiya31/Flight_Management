@@ -9,6 +9,7 @@ import com.flight.management.Worldline_Assignment.exception.ResourceNotFoundExce
 import com.flight.management.Worldline_Assignment.model.FlightModel;
 import com.flight.management.Worldline_Assignment.repository.FlightRepository;
 import feign.FeignException;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -100,6 +101,16 @@ public class FlightService {
         }
 
         return flightResult;
+    }
+
+    @CircuitBreaker(name = "crazySupplierService", fallbackMethod = "fallbackFlights")
+    public List<CrazySupplierResponseDTO> getCrazySupplierFlights(CrazySupplierRequestDTO request) {
+        return crazySupplierClient.getFlights(request);
+    }
+
+    public List<CrazySupplierResponseDTO> fallbackFlights(CrazySupplierRequestDTO request, Throwable throwable) {
+        System.out.println("Fallback triggered for CrazySupplier: " + throwable.getMessage());
+        return new ArrayList<>();
     }
 
 }
