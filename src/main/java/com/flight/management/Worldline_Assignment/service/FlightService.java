@@ -112,5 +112,4 @@ public class FlightService {
         System.out.println("Fallback triggered for CrazySupplier: " + throwable.getMessage());
         return new ArrayList<>();
     }
-
 }
