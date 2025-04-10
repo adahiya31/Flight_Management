@@ -82,7 +82,7 @@ public class FlightServiceTest {
         assertThrows(ResourceNotFoundException.class, () -> flightService.deleteFlight(1L));
     }
 
-/*
+
     @Test
     public void testSearchFlights() {
         FlightSearch request = new FlightSearch();
@@ -106,7 +106,7 @@ public class FlightServiceTest {
         assertNotNull(result);
         assertEquals(2, result.size());
     }
-*/
+
 
 }
 
