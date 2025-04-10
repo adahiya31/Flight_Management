@@ -12,6 +12,7 @@ This is a Spring Boot application designed for managing and searching flight inf
 - *Flight Search API* (Combines DB + Supplier)
 - *Swagger* for API documentation
 - Validation for request and response DTOs
+- CircuitBreaker FailSafe
 
 ---
 
